@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>4-to-16 Decoder</title>
+</head>
+<style>
+   .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+   }
+</style>
+<body>
+    <div class="container">
+    <h1>4-to-16 Decoder</h1>
+    <input id="binaryInput" type="text" placeholder="Enter 4-bit binary">
+    <button onclick="decode()">Decode</button>
+    <p id="output">Output Line: None</p>
+
+    <script>
+        function decode() {
+            const binaryInput = document.getElementById("binaryInput").value.trim();
+            const output = document.getElementById("output");
+            try {
+                const decimalValue = parseInt(binaryInput, 2);
+                if (decimalValue >= 0 && decimalValue <= 15) {
+                    output.textContent = `Output Line: ${decimalValue}`;
+                } else {
+                    output.textContent = "Error: Input out of range!";
+                }
+            } catch (error) {
+                output.textContent = "Error: Invalid binary input!";
+            }
+        }
+    </script>
+    </div>
+</body>
+</html>
